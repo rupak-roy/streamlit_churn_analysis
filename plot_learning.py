@@ -3,6 +3,8 @@ import streamlit as st
 
 #text to speech pckgs
 import pyttsx3
+import libespeak1
+import espeak
 
 #EDA pkgs
 import pandas as pd
