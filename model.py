@@ -156,9 +156,9 @@ def model():
         Exited=1
         st.header("Predictied ~")
         if results== Exited:
-            st.header("86% Change the customer will leave")
+            st.header("86% Chance the customer will leave")
         else:
-            st.header("86% Change the customer will not leave")
+            st.header("86% Chance the customer will not leave")
 
         st.text("Tweak Number of Products to 2 to see the app in action ")
 
