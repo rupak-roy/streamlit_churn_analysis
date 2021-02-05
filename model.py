@@ -67,7 +67,8 @@ def model():
         y = df.iloc[:, -1]
         
         st.write(X.head(5))
-        st.write(X.columns)             
+        st.write(X.columns)   
+        st.write(y.columns)          
         #Categorical Variable Transfomation 
         #Gender
         X["Gender"] = X["Gender"].astype('category')
