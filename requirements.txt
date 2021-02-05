@@ -1,7 +1,7 @@
 pyttsx3
 gTTS
 playsound
-python-gobject
+pygobject
 Keras-Applications==1.0.8
 Keras-Preprocessing==1.1.0
 alabaster==0.7.12
