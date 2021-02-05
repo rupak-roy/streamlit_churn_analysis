@@ -64,7 +64,7 @@ def model():
         st.write("showing only 20 rows.....from", df.shape[0],"rows" )
         
         st.write(df.columns)
-        X = df.iloc[:,3:13]
+        X = df.iloc[:,0:13]
         y = df.iloc[:, -1]
         
         st.write(X.columns)
