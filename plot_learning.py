@@ -43,8 +43,20 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 def run_churn_plots():
     
-    st.subheader(" Advance In-Depth Vizualizers Analysis")
-
+    # initialize Text-to-speech engine
+    engine = pyttsx3.init()            
+    # get details of all voices available
+    voices = engine.getProperty("voices")
+    #print(voices)            
+    # convert this text to speech
+    text = "Welcome to the plot module, a specialized in-depth approach to vizualization"
+    engine.setProperty("rate", 170)
+    #set another language 
+    engine.setProperty("voice", voices[1].id)
+    engine.say(text)
+    # play the speech
+    engine.runAndWait()
+    
     data1 = st.file_uploader("Pre-Dataset Loaded",type = ["csv","txt"])
     data = 'Churn_Modelling.csv'
     if data is not None:
