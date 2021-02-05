@@ -45,9 +45,9 @@ import pickle
 def model():
     
     # load the model from disk
-    filename1 = 'churn_model.sav'
-    loaded_model = pickle.load(open(filename1, 'rb'))
-    
+    #filename1 = 'churn_model.sav'
+    #loaded_model = pickle.load(open(filename1, 'rb'))
+    #Github file size issue
     st.subheader(" Advance In-Depth Vizualizers Analysis")
 
     data1 = st.file_uploader("Pre-Dataset Loaded",type = ["csv","txt"])
@@ -61,7 +61,36 @@ def model():
         temp_numeric = df.select_dtypes(include=['int64','float64'])
         t_n_c =temp_numeric.columns.to_list()
         st.table(df20.style.bar(subset=t_n_c,align='mid', color=['#ffeceb', '#f0fff4']))
-        st.write("showing only 20 rows.....from", df.shape[0],"rows" )  
+        st.write("showing only 20 rows.....from", df.shape[0],"rows" )
+        
+        #drop the missing values
+        data = data.dropna()
+        X = data.iloc[:,3:13]
+        y = data.iloc[:, -1]
+        
+        #Categorical Variable Transfomation 
+        #Gender
+        X["Gender"] = X["Gender"].astype('category')
+
+        #using the cat.codes accessor
+        X["Gender"] =X["Gender"].cat.codes
+
+        #Encoding the GEography Variable
+        X = pd.get_dummies(X,drop_first=True, dtype='int64')
+        
+        #split the dataset
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 0)
+
+        #Scale the data
+        sc = StandardScaler()
+        X_train = sc.fit_transform(X_train)
+        X_test = sc.transform(X_test)
+
+        # Fitting Random Forest Classification to the Training set
+        rf_model = RandomForestClassifier(n_estimators = 1000, criterion = 'entropy', random_state = 0)
+        rf_model.fit(X_train, y_train)
+        
+        
 
     st.subheader("Variables contributing to the Churn/Customer Retention")
     st.write("via Feature Importance")
@@ -122,7 +151,7 @@ def model():
             #EstimatedSalary = st.slider("What if the Estimated Salary",12,199992,100090)
             #st.write("Defaul:100090(Average) Taken",EstimatedSalary )
             
-        results = loaded_model.predict([[CreditScore,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,
+        results = rf_model.predict([[CreditScore,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,
                                          EstimatedSalary,Geo_Germany,Geo_spain]])
         
         #st.write(results)
