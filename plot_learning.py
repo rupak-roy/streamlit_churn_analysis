@@ -41,10 +41,10 @@ st.set_option('deprecation.showfileUploaderEncoding', False)
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
-
+from gtts import gTTS 
 def run_churn_plots():
     
-    from gtts import gTTS 
+
 
     import os 
 
@@ -57,8 +57,7 @@ def run_churn_plots():
     myobj = gTTS(text=mytext, lang=language, slow=False) 
     
     myobj.save("welcome.mp3") 
-    
-    
+        
     from playsound import playsound
     playsound("welcome.mp3")
     
