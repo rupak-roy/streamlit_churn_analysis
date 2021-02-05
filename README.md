@@ -12,6 +12,8 @@ Note: Computationally expensive. Thus requirements time to process
 
 ![image](char_analysis.jpg)
 
+![image](num_analysis.jpg)
+
 ![image](multi-variateGrid.png)
 
 ![image](multi-variateGrid2.png)
