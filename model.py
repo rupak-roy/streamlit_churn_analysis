@@ -62,9 +62,7 @@ def model():
         t_n_c =temp_numeric.columns.to_list()
         st.table(df20.style.bar(subset=t_n_c,align='mid', color=['#ffeceb', '#f0fff4']))
         st.write("showing only 20 rows.....from", df.shape[0],"rows" )
-        
-        #drop the missing values
-        df = df.dropna()
+
         X = df.iloc[:,3:13]
         y = df.iloc[:, -1]
         
