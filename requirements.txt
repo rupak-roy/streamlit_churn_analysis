@@ -1,7 +1,4 @@
 pyttsx3
-libespeak1
-espeak
-espeak-python
 gTTS
 Keras-Applications==1.0.8
 Keras-Preprocessing==1.1.0
