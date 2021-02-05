@@ -64,9 +64,9 @@ def model():
         st.write("showing only 20 rows.....from", df.shape[0],"rows" )
         
         #drop the missing values
-        data = data.dropna()
-        X = data.iloc[:,3:13]
-        y = data.iloc[:, -1]
+        df = df.dropna()
+        X = df.iloc[:,3:13]
+        y = df.iloc[:, -1]
         
         #Categorical Variable Transfomation 
         #Gender
