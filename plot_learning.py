@@ -4,7 +4,6 @@ import streamlit as st
 #text to speech pckgs
 import pyttsx3
 
-import espeak
 from espeak import espeak
 
 #EDA pkgs
