@@ -41,25 +41,8 @@ st.set_option('deprecation.showfileUploaderEncoding', False)
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
-from gtts import gTTS 
 def run_churn_plots():
     
-
-
-    import os 
-
-    # The text that you want to convert to audio 
-    mytext = 'Welcome Bob ,, how are you, whatsup! hows ur day! ,,lets sing a song,,,,,'
-    
-    # Language in which you want to convert 
-    language = 'en'
-    
-    myobj = gTTS(text=mytext, lang=language, slow=False) 
-    
-    myobj.save("welcome.mp3") 
-        
-    from playsound import playsound
-    playsound("welcome.mp3")
     
     data1 = st.file_uploader("Pre-Dataset Loaded",type = ["csv","txt"])
     data = 'Churn_Modelling.csv'
